@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and general styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: space-between;
+        }
+
+        /* Header styles */
+        .header {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad); /* Lighter purple gradient */
+            color: white;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Sticky logo animation */
+        .logo h2 {
+            margin: 0;
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: white;
+            animation: moveVertical 3s ease-in-out infinite; /* Apply vertical animation */
+        }
+
+        /* Keyframe animation for vertical movement */
+        @keyframes moveVertical {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 30px;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 30px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Light shadow for text */
+        }
+
+        .menu a:hover {
+            color: #ffd700; /* Golden hover effect */
+            text-shadow: 0 1px 5px rgba(255, 215, 0, 0.8); /* Glowing text effect */
+        }
+
+        .menu a:focus {
+            color: #f39c12; /* Focus effect */
+            outline: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Set height to 80% of the screen */
+            background-color: #ffffff;
+            padding: 0 20px;
+            margin-top: 80px; /* To account for the sticky header */
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            max-width: 50%;
+            text-align: left;
+        }
+
+        .hero-text h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-buttons a {
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        /* Button colors */
+        .hero-buttons .btn {
+            background: #2575fc; /* Blue background */
+            color: white;
+            border: none;
+        }
+
+        .hero-buttons .btn:hover {
+            background: #6a11cb; /* Purple hover effect */
+            transform: scale(1.1);
+        }
+
+        .hero-buttons .ghost-btn {
+            background-color: #2575fc;
+            border: none;
+            color: white;
+        }
+
+        .hero-buttons .ghost-btn:hover {
+            background-color: #6a11cb;
+            color: white;
+        }
+
+        /* Increased image size and left alignment */
+        .hero-image img {
+            width: 400px; /* Increased image size */
+            height: 400px; /* Increased image size */
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            margin-left: 20px; /* Align image to the left */
+        }
+
+        /* Footer styles */
+        footer {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad); /* Match the header gradient */
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+        }
+
+        footer .footer-content p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        footer .social-links {
+            margin-top: 10px;
+        }
+
+        footer .social-links a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #ffd700; /* Golden hover effect for a contrast */
+        }
+
+        footer .social-links a:active {
+            color: #f39c12; /* Bright yellow on click */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <h2>Ganesh Gogula</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h3>Hello, I'm</h3>
+                <h1>Ganesh Gogula</h1>
+                <h2>Full Stack Web Developer</h2>
+                <p>
+                    I specialize in building modern, responsive, and scalable web applications using <strong>Python</strong>, <strong>Django</strong>, and <strong>React JS</strong>.
+                </p>
+                <div class="hero-buttons">
+                    <a href="resume.pdf" download class="btn">Download Resume</a>
+                    <a href="#" class="ghost-btn" onclick="contactAlert()">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="c:\Users\Gogula Ganesh\Desktop\proofs\image.jpg" alt="Profile Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Ganesh Gogula. All rights reserved.</p>
+            <div class="social-links">
+                 <a href="https://www.facebook.com/share/p/1AzMSTMta2/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/ganigogula?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BudUgP7vqSDepGMulOoXftQ%3D%3D" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ganigogula" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="c:\Users\Gogula Ganesh\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\1B14B35F32DF1D372F0F20AFFA2386130F191EAA\transfers\2026-08\WhatsApp Image 2026-02-19 at 12.31.11 PM.jpeg" target="_blank"><i class="fab fa-instagram"></i></a>
+               
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function contactAlert() {
+            alert("Name: Ganesh Gogula\nContact No: 7093969045\nEmail: ganeshgogula6@gmail.com");
+        }
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

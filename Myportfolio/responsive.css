@@ -1,0 +1,74 @@
+@media (max-width: 768px) {
+    .navbar .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+    }
+
+    .navbar .menu.active {
+        display: flex;
+    }
+
+    .navbar .menu li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-image img {
+        width: 300px;
+        height: 300px;
+        margin-top: 30px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .about-text {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .skills-container {
+        flex-direction: column;
+    }
+
+    .skill img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .project {
+        width: 100%;
+    }
+
+    .contact input, .contact textarea {
+        width: 80%;
+    }
+}

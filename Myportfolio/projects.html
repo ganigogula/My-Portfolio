@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projects | My Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="responsive.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and general styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #6a1b9a, #9c27b0); /* Purple Gradient Background */
+            color: #fff;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(45deg, #8e24aa, #ab47bc); /* Shiny Purple Gradient */
+            color: white;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 30px;
+        }
+
+        .logo h2 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 30px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ffd700; /* Gold Hover */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* Shine effect */
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 50px 0;
+            background-color: #fff;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .section-heading {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 30px;
+            flex-wrap: nowrap; /* Prevent wrapping to the next line */
+        }
+
+        .project {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            width: 22%; /* Adjusted width to fit 4 projects in one line */
+            text-align: left;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #ddd;
+        }
+
+        .project h3 {
+            font-size: 1.7rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .project p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        .project:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #8e24aa, #ab47bc); /* Shiny Purple Gradient */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .project .btn:hover {
+            background: linear-gradient(45deg, #9c27b0, #8e24aa); /* Shiny Purple Gradient */
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(45deg, #9c27b0, #8e24aa); /* Shiny Purple Gradient */
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        footer .footer-content p {
+            margin-bottom: 20px;
+        }
+
+        footer .social-links {
+            margin-top: 20px;
+        }
+
+        footer .social-links a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #ffd700;
+            transform: scale(1.2);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* Shine effect */
+        }
+    </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <nav class="navbar">
+                <div class="logo">
+                    <h2>Ganesh Gogula</h2>
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Projects Section -->
+        <section class="projects">
+            <h2 class="section-heading">My Projects</h2>
+            <div class="projects-container">
+                <div class="project">
+                    <h3>Phishing Detection System</h3>
+                    <p>
+                        A comprehensive <strong>Phishing Detection
+                            System</strong> built with <strong>Python</strong>
+                        and <strong>Flask</strong> and <strong>Machine
+                            Learning</strong>.. It detects and prevents phishing
+                        websites by analyzing URLs and identifying suspicious
+                        patterns to improve online security.
+                    </p>
+                    <a
+                        href="https://github.com/ganigogula/URL-Phish-Catcher.git"
+                        class="btn" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Credit Card Management</h3>
+                    <p>
+                        A credit card management system built with
+                        <strong>Python</strong> and <strong>Django</strong>. It
+                        allows users to manage their credit cards, track
+                        payments, and monitor spending limits.
+                    </p>
+                    <a
+                        href="https://github.com/ganigogula/CreditCard-Project.git"
+                        class="btn" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Portfolio Website</h3>
+                    <p>
+                        A responsive and modern portfolio website built with
+                        <strong>HTML</strong>, <strong>CSS</strong>, and
+                        <strong>JavaScript</strong> to showcase my skills and
+                        projects.
+                    </p>
+                    <a href="https://your-link-to-portfolio-website.com"
+                        class="btn" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Amazon Clone</h3>
+                    <p>
+                        A fully functional <strong>Amazon Clone</strong>
+                        developed with <strong>HTML</strong>,
+                        <strong>CSS</strong>, and <strong>JavaScript</strong>.
+                        It mimics the design and functionality of the popular
+                        e-commerce platform, allowing users to browse products,
+                        add them to the cart, and simulate the checkout process.
+                    </p>
+                    <a href="https://your-link-to-amazon-clone-project.com"
+                        class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Shaik Sohel. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/p/1AzMSTMta2/"
+                        target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a
+                        href="https://www.linkedin.com/in/ganigogula?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BudUgP7vqSDepGMulOoXftQ%3D%3D"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ganigogula" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                    <a
+                        href="c:\Users\Gogula Ganesh\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\1B14B35F32DF1D372F0F20AFFA2386130F191EAA\transfers\2026-08\WhatsApp Image 2026-02-19 at 12.31.11 PM.jpeg"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

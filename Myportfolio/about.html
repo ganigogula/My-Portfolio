@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and general styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4; /* Light gray background */
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: space-between;
+        }
+
+        /* Header styles */
+        .header {
+            background: linear-gradient(45deg, #6a0dad, #2575fc); /* Gradient from purple to blue */
+            color: white;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            transition: background 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 30px;
+        }
+
+        .logo h2 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700; /* Gold for the logo */
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 30px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ffd700; /* Gold color for hover effect */
+            transform: scale(1.1);
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background-color: #2c3e50;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 200px;
+                border-radius: 8px;
+                padding: 10px;
+            }
+            .menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .menu li {
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 140px); /* Take up the remaining height after header and footer */
+            padding: 20px;
+            text-align: center;
+            flex-direction: column;
+            margin-top: 80px; /* Adjust for the fixed header */
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .about-image:hover {
+            transform: scale(1.1);
+        }
+
+        .about-text {
+            max-width: 500px;
+            font-size: 1.1rem;
+            color: #333;
+            text-align: left;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* Skills Section */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .skill {
+            width: 22%; /* 4 items per line */
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #6a0dad; /* Purple color for headings */
+        }
+
+        .skill p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #9b4dca; /* Lighter purple background */
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer .footer-content p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        footer .social-links {
+            margin-top: 10px;
+        }
+
+        footer .social-links a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #ffd700; /* Golden hover effect */
+            transform: scale(1.2);
+        }
+
+        footer .social-links a:active {
+            color: #e74c3c; /* Red on click */
+        }
+    </style>
+</head>
+<body>
+ 
+        <header class="header">
+            <nav class="navbar">
+                <div class="logo">
+                    <h2>Ganesh Gogula</h2>
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+            </nav>
+        </header>
+    
+        <!-- About Section -->
+        <section class="about" id="about">
+            <h2 class="section-heading">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="c:\Users\Gogula Ganesh\Desktop\proofs\image.jpg" alt="Profile Image">
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm a Full Stack Web Developer with experience in creating scalable and user-friendly web applications. I specialize in front-end technologies like <strong>React.js</strong> and back-end development using <strong>Python</strong> and <strong>Django</strong>.
+                    </p>
+                    <p>
+                        I completed my <strong>Python Full Stack Web Development</strong> training at <strong>Version IT Institute, Hyderabad</strong>, where I gained hands-on experience in both front-end and back-end development, particularly with Django.
+                    </p>
+                    <p>
+                        I enjoy solving real-world problems and building smooth, efficient user experiences. I'm always excited to learn and grow as a developer.
+                    </p>
+                    <p>
+                        Feel free to reach out if you're looking for a developer dedicated to delivering quality work.
+                    </p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Ganesh Gogula. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/p/1AzMSTMta2/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/ganigogula?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BudUgP7vqSDepGMulOoXftQ%3D%3D" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ganigogula" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="c:\Users\Gogula Ganesh\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\1B14B35F32DF1D372F0F20AFFA2386130F191EAA\transfers\2026-08\WhatsApp Image 2026-02-19 at 12.31.11 PM.jpeg" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    
+        <script>
+            // Toggle mobile menu
+            function toggleMenu() {
+                const menu = document.querySelector('.menu');
+                menu.classList.toggle('active');
+            }
+        </script>
+    </body>
+    </html>
+    
